@@ -432,6 +432,10 @@ function! s:dbui.populate_schema_info(db) abort
   if a:db.filetype ==? 'js'
     let a:db.filetype = 'javascript'
   endif
+  " emmanuel: i don't understand this. but d2ffc1bdae3041105f3b57423e0e81a5d9429267 broke my jq integration
+  if a:db.filetype ==? 'jq'
+    let a:db.filetype = 'sql'
+  endif
 endfunction
 
 " Resolve only urls for DBs that are files
